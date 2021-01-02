@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import firebase from './firebase/firebase';
 
 function App() {
+  console.log('ENV', process.env);
   return (
    <h1>
      Our To Do App
