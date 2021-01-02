@@ -1,13 +1,25 @@
 import React from "react";
-import { connect } from "react-redux";
+import List from "@material-ui/core/List";
+import { useTodos } from "../../utils/hooks/useTodos";
+import ToDoListItem from "../ListItem/ListItem";
+import Paper from '@material-ui/core/Paper';
 
-const List = ({ todos }) => {
-  return <div></div>;
+const ToDoList = () => {
+  const todos = useTodos();
+  return (
+  <Paper elevation={4}>
+    <List>
+      {todos.map((todo) => (
+        <ToDoListItem
+          key={todo.id}
+          id={todo.id}
+          title={todo.title}
+          completed={todo.completed}
+        />
+      ))}
+    </List>
+  </Paper>
+  );
 };
 
-const mapStateToProps = (state) => {
-  todos: getTodos(state);
-};
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default ToDoList;
